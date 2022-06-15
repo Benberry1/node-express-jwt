@@ -1,12 +1,12 @@
-const CustomAPIError = require("../errors/custom-error");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
+const { BadRequestError } = require("../errors");
 
 const login = async (req, res) => {
   const { username, password } = req.body;
   // basic validation, other options would be having a mongoose schema and/or use third party such as Joi
   if (!username || !password) {
-    throw new CustomAPIError("Please provide an email and password", 400);
+    throw new BadRequestError("Please provide an email and password");
   }
   //   no connected database for this basic demonstation of jwt so id is created and added in the api
   const id = mongoose.Types.ObjectId();
