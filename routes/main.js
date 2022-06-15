@@ -4,6 +4,7 @@ const router = express.Router();
 const { login, dashboard } = require("../controllers/main");
 const authMiddleware = require("../middleware/auth");
 
+// two routes /dashboard using basic authMiddleware
 router.route("/dashboard").get(authMiddleware, dashboard);
 router.route("/login").post(login);
 

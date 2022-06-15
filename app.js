@@ -8,8 +8,8 @@ const mainRouter = require("./routes/main");
 const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 
-app.use("/", express.static(path.join(__dirname, "public")));
 app.use(express.json());
+app.use("/", express.static(path.join(__dirname, "public")));
 
 app.use("/api/v1", mainRouter);
 
